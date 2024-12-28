@@ -1,0 +1,36 @@
+{
+    "name": "Watch Man",
+    "description": "Manage your watchlist of movies and shows",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": "src/assets/gray32.png",
+        "default_title": "Watch Man",
+        "default_popup": "src/popup.html"
+    },
+    "icons": {
+    "16": "src/assets/icon16.png",
+    "32": "src/assets/icon32.png",
+    "48": "src/assets/icon48.png",
+    "96": "src/assets/icon96.png",
+    "128": "src/assets/icon128.png"
+  },
+    "content_scripts": [
+    {
+      "js": ["src/imdb-reader.js"],
+      "matches": [
+        "https://www.imdb.com/title/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "unlimitedStorage",
+    "storage"
+  ]
+}

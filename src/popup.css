@@ -1,0 +1,27 @@
+html {
+    height: min-content;
+}
+
+body {
+    padding: 8px;
+    text-align: center;
+    background-color: #efefef;
+    height: min-content;
+}
+
+button {
+    border: 1px solid black;
+}
+
+button:hover {
+    background-color: #dfdfdf;
+}
+
+#title-found {
+    display: none;
+}
+
+#no-title {
+    width: 150px;
+    height: 283px;
+}
