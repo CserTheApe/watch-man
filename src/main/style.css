@@ -1,0 +1,23 @@
+body {
+    margin: 20px;
+
+}
+
+#title-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.title-card {
+    background-color: #efefef;
+    box-sizing: border-box;
+    width: 166px;
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.title-card:hover {
+    box-shadow: 1px 1px 5px;
+}

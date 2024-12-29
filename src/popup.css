@@ -3,25 +3,34 @@ html {
 }
 
 body {
-    padding: 8px;
-    text-align: center;
     background-color: #efefef;
-    height: min-content;
+    height: 400px;
+    width: 300px;
+    padding: 0;
+    margin: 0;
 }
 
-button {
-    border: 1px solid black;
-}
-
-button:hover {
-    background-color: #dfdfdf;
+header {
+    background-color: #dddddd;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 4px;
 }
 
 #title-found {
+    text-align: center;
+    padding: 8px;
     display: none;
 }
 
 #no-title {
-    width: 150px;
-    height: 283px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }

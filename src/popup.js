@@ -1,11 +1,34 @@
+function goToMainPage() {
+    window.open("main/index.html", "_blank").focus();
+}
+document.getElementById("newTabButton").addEventListener("click", goToMainPage);
+
+
+// function updateWatchlist() {
+//     chrome.storage.sync.get('watchManList', function (data) {
+//         const storedTitles = data.watchManList ?? [];
+//         const newTitles = [];
+
+//         storedTitles.forEach((elem, indx) => {
+//             const newTitle = { ...elem, list: 'want-to-watch' };
+//             newTitles.push(newTitle);
+//         });
+//         chrome.storage.sync.set({ 'watchManList': newTitles });
+//     });
+// }
+// document.getElementById("blah").addEventListener("click", updateWatchlist);
+
+
+
 let name, poster, imdbId;
 
 function addToWatchlist() {
     const newTitle = {
         name,
         poster,
-        imdbId
-    }
+        imdbId,
+        list: 'want-to-watch'
+    };
     // const storedTitles = JSON.parse(localStorage.getItem("watchManList")) ?? [];
     // if (!storedTitles.some(title => title.imdbId === imdbId)) {
     //     storedTitles.push(newTitle);
@@ -15,8 +38,8 @@ function addToWatchlist() {
         const storedTitles = data.watchManList ?? [];
         if (!storedTitles.some(title => title.imdbId === imdbId)) {
             storedTitles.push(newTitle);
-            chrome.storage.sync.set({ 'watchManList': storedTitles })
-            const addBtn = document.getElementById("addButton")
+            chrome.storage.sync.set({ 'watchManList': storedTitles });
+            const addBtn = document.getElementById("addButton");
             addBtn.setAttribute("disabled", "true");
             addBtn.textContent = "Added to watchlist";
         }
@@ -30,7 +53,7 @@ async function contactContentScript() {
         let queryOptions = { active: true, currentWindow: true };
         let tab = await chrome.tabs.query(queryOptions);
         if (tab.length < 1)
-            return
+            return;
 
         chrome.tabs.sendMessage(
             tab[0].id,
@@ -49,7 +72,7 @@ async function contactContentScript() {
                         chrome.storage.sync.get('watchManList', function (data) {
                             const storedTitles = data.watchManList ?? [];
                             if (storedTitles.some(title => title.imdbId === imdbId)) {
-                                const addBtn = document.getElementById("addButton")
+                                const addBtn = document.getElementById("addButton");
                                 addBtn.setAttribute("disabled", "true");
                                 addBtn.textContent = "Added to watchlist";
                             }
