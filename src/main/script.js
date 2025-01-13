@@ -19,7 +19,7 @@ function createTitle(title) {
         const params = new URLSearchParams();
         params.append("imdbId", title.imdbId);
         const queryString = params.toString();
-        window.location.assign(`title/index.html?${queryString}`);
+        window.location.assign(`../title/index.html?${queryString}`);
     })
     return container;
 }

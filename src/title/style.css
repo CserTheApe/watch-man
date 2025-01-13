@@ -1,0 +1,53 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    padding: 20px;
+    gap: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#title-main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-right: 24px;
+}
+
+#header {
+    font-size: 48px;
+    margin: 0;
+}
+
+#subheader {
+    color: #999999;
+    margin-bottom: 4px;
+}
+
+#release-date {
+    color: #999999;
+    margin-top: 0;
+}
+
+.genre-badge {
+    border-radius: 20px;
+    background-color: aquamarine;
+    padding: 4px 8px;
+    margin-right: 8px;
+}

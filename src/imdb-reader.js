@@ -1,11 +1,10 @@
 let name, image;
 
 const imdbId = document.head.querySelector('meta[property="imdb:pageConst"]').content;
-const skript = JSON.parse(document.head.querySelector('script[type="application/ld+json"]').textContent);
+const scriptData = JSON.parse(document.head.querySelector('script[type="application/ld+json"]').textContent);
 // console.log("script", skript);
-name = skript.name;
-image = skript.image;
-
+const subsetOfScriptData = (({ name, image, description, duration, genre, aggregateRating, datePublished }) => ({ name, image, description, duration, genre, aggregateRating, datePublished }))(scriptData);
+const bodyScript = JSON.parse(document.getElementById("__NEXT_DATA__").textContent);
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (!!name || !!imdbId) {
@@ -13,11 +12,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       sendResponse({ imdbId, status: 200 });
     }
     else if (request.from === "popup" && request.to === "content") {
-      console.log("called from popup");
       sendResponse({
         imdbId,
-        name,
-        image,
+        scriptData,
+        bodyScript,
         status: 200
       });
     }
