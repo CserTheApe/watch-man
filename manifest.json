@@ -6,6 +6,6 @@
     "action": {
         "default_icon": "src/assets/gray32.png",
         "default_title": "Watch Man",
-        "default_popup": "src/popup.html"
+        "default_popup": "src/popup/index.html"
     }
 }
