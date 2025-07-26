@@ -1,0 +1,38 @@
+html {
+    height: min-content;
+}
+
+body {
+    background-color: #efefef;
+    height: 400px;
+    width: 300px;
+    padding: auto;
+    margin: 0;
+}
+
+header {
+    background-color: #dddddd;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding: 4px;
+}
+
+#title-found, #random-title, #no-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 8px;
+}
+
+#title-found, #random-title {
+    display: none;
+}
+
+#no-title {
+    justify-content: center;
+    display: flex;
+}
